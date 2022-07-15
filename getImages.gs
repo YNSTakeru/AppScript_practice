@@ -1,26 +1,3 @@
-class OurImageInfo {
-    constructor() {}
-}
-
-function myFunction() {
-    const ourDrive = new OurDriveInfo();
-    const driveID = ourDrive.driveID;
-
-    let files = DriveApp.getFolderById(driveID).getFiles();
-    let pic = [];
-    while (files.hasNext()) {
-        let file = files.next();
-        pic.push([
-            file.getName(),
-            file.getUrl(),
-            file.getId(),
-            `<img src="${file.getUrl()}" width="300" />`,
-        ]);
-    }
-
-    console.log(pic);
-}
-
 function getFileListInFolder() {
     let ss = SpreadsheetApp.getActiveSpreadsheet();
     let sht1 = ss.getSheetByName("シート1");
