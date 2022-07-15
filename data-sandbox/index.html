@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <base target="_top" />
+    </head>
+    <body>
+        <div style="display: flex; flex-direction: column; gap: 10px">
+            <label>フィルタリング</label>
+            <div>
+                <select name="website" id="website-select" style="width: 100px">
+                    <option value="all">全てのサイト</option>
+                    <option value="Openrec">Openrec</option>
+                    <option value="twitch">twitch</option>
+                    <option value="ニコ生">ニコ生</option>
+                </select>
+                <select name="gender" id="gender-select" style="width: 100px">
+                    <option value="all">全</option>
+                    <option value="男">男</option>
+                    <option value="女">女</option>
+                </select>
+            </div>
+        </div>
+        <!-- output._にimgタグを生成する -->
+        <? output._ = (msg) ?>
+        <script>
+            const websiteSelect = document.getElementById("website-select");
+            const genderSelect = document.getElementById("gender-select");
+
+            const ul = document.querySelectorAll("ul");
+
+            websiteSelect.addEventListener("change", (e) => {
+                for (element of ul) {
+                    if (
+                        (element.dataset.website === websiteSelect.value ||
+                            websiteSelect.value === "all") &&
+                        (element.dataset.gender === genderSelect.value ||
+                            genderSelect.value === "all")
+                    ) {
+                        element.style.display = "block";
+                    } else {
+                        element.style.display = "none";
+                    }
+                }
+            });
+
+            genderSelect.addEventListener("change", (e) => {
+                for (element of ul) {
+                    if (
+                        (element.dataset.website === websiteSelect.value ||
+                            websiteSelect.value === "all") &&
+                        (element.dataset.gender === genderSelect.value ||
+                            genderSelect.value === "all")
+                    ) {
+                        element.style.display = "block";
+                    } else {
+                        element.style.display = "none";
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
